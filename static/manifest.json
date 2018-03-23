@@ -1,11 +1,17 @@
 {
-  "name": "A browser action with a popup that changes the page color",
-  "description": "Change the current page color",
+  "name": "devTools",
+  "description": "🔧 开发者工具箱",
   "version": "1.0",
   "permissions": ["activeTab"],
+  "options_page": "index.html#/options",
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
   "browser_action": {
     "default_title": "Set this page's color.",
-    "default_icon": "icon.png",
+    "default_icon": "icon-16.png",
     "default_popup": "index.html#/popup"
   },
   "manifest_version": 2

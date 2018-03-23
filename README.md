@@ -1,7 +1,5 @@
 # devTools
 
-> My wondrous Vue project
-
 [![Build Status](https://img.shields.io/travis/sinchang/devTools.svg)](https://travis-ci.org/sinchang/devTools)
 
 ## Development
@@ -9,6 +7,10 @@
 ```bash
 yarn && yarn watch
 ```
+
+## Credits
+
+* icon from [icon8](https://icons8.com/)
 
 ## Author
 
