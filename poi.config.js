@@ -6,7 +6,7 @@ module.exports = {
     'src/polyfills.js',
     'src/index.js'
   ],
-  sourcemap: false,
+  hash: false,
   html: {
     title: pkg.productName,
     description: pkg.description,
