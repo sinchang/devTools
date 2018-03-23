@@ -2,8 +2,15 @@ module.exports = {
   extends: ['eslint-config-alloy/vue'],
   globals: {},
   rules: {
-    semi: [0],
-    indent: ['error', 2],
-    'no-new': [0]
+    semi: [2, 'never'],
+    indent: [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+        flatTernaryExpressions: true
+      }
+    ],
+    'no-new': 0
   }
 }
