@@ -3,7 +3,7 @@ const pkg = require('./package')
 
 module.exports = {
   entry: [
-    // 'src/polyfills.js',
+    'src/polyfills.js',
     'src/index.js'
   ],
   sourcemap: false,
