@@ -2,7 +2,8 @@ module.exports = {
   extends: ['eslint-config-alloy/vue'],
   globals: {
     chrome: true,
-    ace: true
+    ace: true,
+    jsbeautifier: true
   },
   rules: {
     semi: [2, 'never'],

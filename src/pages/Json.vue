@@ -3,14 +3,15 @@
     <el-alert
       class="page-title"
       :closable="false"
-      title="DevTools: XML 检查美化"
+      title="DevTools: JSON 检查美化"
       type="info">
     </el-alert>
     <div id="editor"></div>
     <div class="btn-group">
       <el-button round size="mini" @click="beautify">美化</el-button>
       <el-button round size="mini" @click="clear">清空</el-button>
-      <el-button round size="mini" v-copy:callback="copy" v-copy="`${xml}`">复制</el-button>
+      <el-button round size="mini" @click="compress">压缩</el-button>
+      <el-button round size="mini" v-copy:callback="copy" v-copy="`${json}`">复制</el-button>
       <el-button round size="mini" @click="download">下载</el-button>
       <el-upload
         class="upload-demo"
@@ -26,27 +27,28 @@
 
 <script>
 const FileSaver = require('file-saver')
+const beautifyJs = require('js-beautify')
 export default {
-  name: 'Xml',
+  name: 'Json',
   data() {
     return {
       editor: null,
-      xml: ''
+      json: ''
     }
   },
   mounted() {
-    document.title = 'XML 检查美化'
+    document.title = 'JSON 检查美化'
     this.editor = ace.edit('editor')
-    this.editor.session.setMode('ace/mode/xml')
+    this.editor.session.setMode('ace/mode/json')
     this.editor.setShowPrintMargin(false)
     this.editor.on('change', () => {
-      this.xml = this.editor.session.getValue()
+      this.json = this.editor.session.getValue()
     })
   },
   methods: {
     beautify() {
-      const beautify = ace.require('ace/ext/beautify')
-      beautify.beautify(this.editor.session)
+      const json = beautifyJs(this.json)
+      this.editor.session.setValue(json)
     },
     clear() {
       this.editor.session.setValue('')
@@ -58,10 +60,10 @@ export default {
       })
     },
     download() {
-      const blob = new Blob([this.xml], {
+      const blob = new Blob([this.json], {
         type: 'text/xml;charset=utf-8'
       })
-      FileSaver.saveAs(blob, 'file.xml')
+      FileSaver.saveAs(blob, 'file.json')
     },
     change(file) {
       // Returns a new Blob object containing the data in the specified range of bytes of the source Blob.
@@ -75,6 +77,9 @@ export default {
       })
 
       reader.readAsText(blob)
+    },
+    compress() {
+      this.editor.session.setValue(JSON.stringify(JSON.parse(this.json)))
     }
   }
 }
