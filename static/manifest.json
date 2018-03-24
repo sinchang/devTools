@@ -1,5 +1,5 @@
 {
-  "name": "devTools",
+  "name": "DevTools",
   "description": "🔧 开发者工具箱",
   "version": "1.0",
   "permissions": ["activeTab"],
