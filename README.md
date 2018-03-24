@@ -11,6 +11,7 @@ yarn && yarn watch
 ## Credits
 
 * icon from [icon8](https://icons8.com/)
+* [JSON Formatter](https://github.com/callumlocke/json-formatter)
 
 ## Author
 

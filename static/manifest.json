@@ -2,7 +2,7 @@
   "name": "DevTools",
   "description": "🔧 开发者工具箱",
   "version": "1.0",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "<all_urls>", "tabs", "*://*/*", "contextMenus"],
   "options_page": "index.html#/options",
   "icons": {
     "16": "icon-16.png",
@@ -14,8 +14,17 @@
     "default_popup": "index.html#/popup"
   },
   "background": {
-    "scripts": ["vendor.js", "client.js"],
+    "scripts": ["vendor.js", "client.js", "background.js"],
     "persistent": false
   },
+  "content_scripts": [
+    {
+      "js": ["libs/jsonview.js"],
+      "matches": ["http://*/*", "https://*/*", "ftp://*/*", "file:///*"],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy":
+    "style-src 'self' 'unsafe-inline';script-src 'self' 'unsafe-eval'; object-src 'self' ",
   "manifest_version": 2
 }
