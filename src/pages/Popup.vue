@@ -10,7 +10,7 @@
       </el-menu-item>
       <el-menu-item index="xml">
         <i class="el-icon-setting"></i>
-        <span slot="title">XML 检查</span>
+        <span slot="title">XML 检查美化</span>
       </el-menu-item>
   </el-menu>
 </template>

@@ -13,3 +13,14 @@ export default {
 
 <!-- CSS libraries -->
 <style src="normalize.css/normalize.css"></style>
+
+<style lang="less">
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.page-title {
+  margin: 20px auto;
+}
+</style>

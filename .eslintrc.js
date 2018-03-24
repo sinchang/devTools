@@ -1,7 +1,8 @@
 module.exports = {
   extends: ['eslint-config-alloy/vue'],
   globals: {
-    chrome: true
+    chrome: true,
+    ace: true
   },
   rules: {
     semi: [2, 'never'],

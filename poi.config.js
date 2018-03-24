@@ -1,7 +1,7 @@
 const path = require('path')
 const pkg = require('./package')
 
-module.exports = {
+module.exports = (options) => ({
   entry: [
     'src/polyfills.js',
     'src/index.js'
@@ -18,11 +18,11 @@ module.exports = {
     ]
   },
   webpack(config) {
-    config.output.publicPath = './'
+    if (options.mode !== 'development') config.output.publicPath = './'
     config.devtool = '#cheap-module-source-map'
     return config
   },
   presets: [
     require('poi-preset-bundle-report')()
   ]
-}
+})
