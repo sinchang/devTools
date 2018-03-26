@@ -2,6 +2,12 @@
 
 [![Build Status](https://img.shields.io/travis/sinchang/devTools.svg)](https://travis-ci.org/sinchang/devTools)
 
+## Usage
+
+Clone or download this repository.
+
+Open Chrome -> Click "three dots" -> More Tools -> Extensions -> LOAD UNPACKED -> Choose the "dist" folder
+
 ## Development
 
 ```bash
@@ -12,6 +18,7 @@ yarn && yarn watch
 
 * icon from [icon8](https://icons8.com/)
 * [JSON Formatter](https://github.com/callumlocke/json-formatter)
+* [ace](https://github.com/ajaxorg/ace) as our editor
 
 ## Author
 
