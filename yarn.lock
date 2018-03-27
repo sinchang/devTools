@@ -120,6 +120,12 @@
     "@types/uglify-js" "*"
     source-map "^0.6.0"
 
+"@xkeshi/vue-qrcode@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@xkeshi/vue-qrcode/-/vue-qrcode-0.3.0.tgz#750a65c3b68a0e5be3c9b8d53596b584dc0c8219"
+  dependencies:
+    qrious "^4.0.2"
+
 "@zeit/check-updates@1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@zeit/check-updates/-/check-updates-1.1.0.tgz#d0f65026a36f27cd1fd54c647d8294447c1d2d8b"
@@ -3849,6 +3855,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jsqr@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/jsqr/-/jsqr-1.0.4.tgz#e2ea353fa81007708efab7d95b2652a7254c10dd"
+
 killable@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/killable/-/killable-1.0.0.tgz#da8b84bd47de5395878f95d64d02f2449fe05e6b"
@@ -4650,7 +4660,7 @@ package-json@^4.0.0:
     registry-url "^3.0.3"
     semver "^5.1.0"
 
-pako@~1.0.5:
+pako@^1.0.5, pako@~1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
 
@@ -5298,6 +5308,17 @@ pupa@^1.0.0:
 q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
+
+qrcode-parser@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/qrcode-parser/-/qrcode-parser-1.1.0.tgz#83e94f2970a10e9f8098bc548c71e1b1148267f0"
+  dependencies:
+    jsqr "^1.0.4"
+    upng-js "^2.1.0"
+
+qrious@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/qrious/-/qrious-4.0.2.tgz#09c4d4079d2b961617f62c69cff3b9bb66a39693"
 
 qs@6.5.1:
   version "6.5.1"
@@ -6523,6 +6544,12 @@ update-notifier@2.3.0, update-notifier@^2.1.0:
     latest-version "^3.0.0"
     semver-diff "^2.0.0"
     xdg-basedir "^3.0.0"
+
+upng-js@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/upng-js/-/upng-js-2.1.0.tgz#7176e73973db361ca95d0fa14f958385db6b9dd2"
+  dependencies:
+    pako "^1.0.5"
 
 upper-case@^1.1.1:
   version "1.1.3"

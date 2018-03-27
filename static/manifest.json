@@ -14,7 +14,7 @@
     "default_popup": "index.html#/popup"
   },
   "background": {
-    "scripts": ["vendor.js", "client.js", "background.js"],
+    "scripts": ["vendor.js", "client.js", "background.js", "contextMenus.js"],
     "persistent": false
   },
   "content_scripts": [

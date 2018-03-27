@@ -17,6 +17,10 @@
         <i class="el-icon-setting"></i>
         <span slot="title">JSON 检查美化</span>
       </el-menu-item>
+      <el-menu-item index="qrcode">
+        <i class="el-icon-setting"></i>
+        <span slot="title">二维码生成</span>
+      </el-menu-item>
       <el-menu-item index="feedback">
         <i class="el-icon-question"></i>
         <span slot="title">反馈</span>
