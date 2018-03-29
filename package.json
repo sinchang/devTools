@@ -26,6 +26,7 @@
     "object-assign": "^4.1.1",
     "promise-polyfill": "^6.0.2",
     "qrcode-parser": "^1.1.0",
+    "unfetch": "^3.0.0",
     "v-copy": "^0.1.0",
     "vue-router": "^3.0.1"
   },
