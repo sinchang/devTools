@@ -1,25 +1,13 @@
 <template>
   <div>
     <el-menu @select="handleSelect">
-      <el-menu-item index="1">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="2">
-        <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item>
-      <el-menu-item index="xml">
-        <i class="el-icon-setting"></i>
-        <span slot="title">XML 检查美化</span>
-      </el-menu-item>
-      <el-menu-item index="json">
-        <i class="el-icon-setting"></i>
-        <span slot="title">JSON 检查美化</span>
-      </el-menu-item>
-      <el-menu-item index="qrcode">
-        <i class="el-icon-setting"></i>
-        <span slot="title">二维码生成</span>
+      <el-menu-item
+        v-for="(route, key) in routes"
+        v-if="!route.hidden"
+        :key="key"
+        :index="route.path.split('/')[1]">
+        <i :class="`el-icon-${route.icon}`"></i>
+        <span slot="title">{{ route.title }}</span>
       </el-menu-item>
       <el-menu-item index="feedback">
         <i class="el-icon-question"></i>
@@ -30,8 +18,15 @@
 </template>
 
 <script>
+import { routes } from '../router/index'
+
 export default {
   name: 'Popup',
+  data() {
+    return {
+      routes
+    }
+  },
   methods: {
     handleSelect(path) {
       if (!path) return

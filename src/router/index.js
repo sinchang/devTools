@@ -8,14 +8,17 @@ import Qrcode from '../pages/Qrcode.vue'
 
 Vue.use(Router)
 
+const routes = [
+  { path: '/options', component: Options, hidden: true },
+  { path: '/popup', component: Popup, hidden: true },
+  { path: '/xml', component: Xml, icon: 'setting', title: 'XML 检查美化' },
+  { path: '/json', component: Json, icon: 'setting', title: 'JSON 检查美化' },
+  { path: '/qrcode', component: Qrcode, icon: 'setting', title: '二维码生成' }
+]
+
 const router = new Router({
-  routes: [
-    { path: '/options', component: Options },
-    { path: '/popup', component: Popup },
-    { path: '/xml', component: Xml },
-    { path: '/json', component: Json },
-    { path: '/qrcode', component: Qrcode }
-  ]
+  routes
 })
 
+export { routes }
 export default router
