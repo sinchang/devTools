@@ -396,18 +396,22 @@
     }
 
   // Listen for requests from content pages wanting to set up a port
-    chrome.extension.onConnect.addListener(function(port) {
+    chrome.runtime.onConnect.addListener(function(port) {
 
-      if (port.name !== 'jf') {
-        console.log('JSON Formatter error - unknown port name '+port.name, port) ;
-        return ;
-      }
+      // if (port.name !== 'jf' || port.name !== 'colorPicker') {
+      //   console.log('JSON Formatter error - unknown port name '+port.name, port) ;
+      //   return ;
+      // }
 
       port.onMessage.addListener(function(msg) {
         var jsonpFunctionName = null,
-            validJsonText
-        ;
-
+            validJsonText;
+        if (msg.type === 'PICKING COLOR') {
+          chrome.tabs.captureVisibleTab(null, { format: 'png' }, dataUrl => {
+            port.postMessage({ dataUrl })
+          })
+          return
+        }
         if (msg.type === 'SENDING TEXT') {
           // Try to parse as JSON
             var obj,

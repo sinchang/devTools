@@ -9,6 +9,10 @@
         <i :class="`el-icon-${route.icon}`"></i>
         <span slot="title">{{ route.title }}</span>
       </el-menu-item>
+      <el-menu-item index="colorPicker">
+        <i class="el-icon-edit"></i>
+        <span slot="title">取色</span>
+      </el-menu-item>
       <el-menu-item index="feedback">
         <i class="el-icon-question"></i>
         <span slot="title">反馈</span>
@@ -30,6 +34,16 @@ export default {
   methods: {
     handleSelect(path) {
       if (!path) return
+
+      if (path === 'colorPicker') {
+        chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+          chrome.tabs.captureVisibleTab(null, { format: 'png' }, dataUrl => {
+            chrome.tabs.sendMessage(tabs[0].id, { dataUrl })
+            window.close()
+          })
+        })
+        return
+      }
 
       const url = `index.html#/${path}`
       let isOpen = false

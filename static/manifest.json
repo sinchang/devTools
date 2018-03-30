@@ -19,7 +19,7 @@
   },
   "content_scripts": [
     {
-      "js": ["libs/jsonview.js"],
+      "js": ["libs/jsonview.js", "colorPicker.js"],
       "matches": ["http://*/*", "https://*/*", "ftp://*/*", "file:///*"],
       "run_at": "document_start"
     }

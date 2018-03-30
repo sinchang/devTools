@@ -52,7 +52,7 @@
   
   // Open the port "jf" now, ready for when we need it
     // console.time('established port') ;
-    port = chrome.extension.connect({name: 'jf'}) ;
+    port = chrome.runtime.connect({name: 'jf'}) ;
     
   // Add listener to receive response from BG when ready
     port.onMessage.addListener( function (msg) {
