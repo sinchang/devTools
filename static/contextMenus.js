@@ -19,6 +19,13 @@ const setUpContextMenus = () => {
     parentId: 'DevTools',
     id: 'verifyQrcode'
   })
+
+  chrome.contextMenus.create({
+    title: '分享到 Twitter',
+    contexts: ['page'],
+    parentId: 'DevTools',
+    id: 'shareToTwitter'
+  })
 }
 
 const openPage = (url, isOpen, cb) => {
@@ -47,7 +54,7 @@ chrome.runtime.onInstalled.addListener(() => {
   setUpContextMenus()
 })
 
-chrome.contextMenus.onClicked.addListener(info => {
+chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId.indexOf('Qrcode') > -1) {
     let isOpen = false
     const url = 'index.html#/qrcode'
@@ -74,5 +81,10 @@ chrome.contextMenus.onClicked.addListener(info => {
         })
       }, 1000)
     })
+  }
+
+  if (info.menuItemId === 'shareToTwitter') {
+    const url = `https://twitter.com/share?text=${tab.title}&url=${info.pageUrl}`
+    window.open(url)
   }
 })
