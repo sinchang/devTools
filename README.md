@@ -2,16 +2,24 @@
 
 [![Build Status](https://img.shields.io/travis/sinchang/devTools.svg)](https://travis-ci.org/sinchang/devTools)
 
-## Usage
+## Feature
 
-Clone or download this repository.
-
-Open Chrome -> Click "three dots" -> More Tools -> Extensions -> LOAD UNPACKED -> Choose the "dist" folder
+* XML、JSON 检测美化
+* 页面 JSON 自动检测，美化格式
+* IP 查询
+* 页面取色
+* 二维码生成及解码
 
 ## Development
 
 ```bash
+想添加新功能？欢迎参与开发 👏
+
+Clone or download this repository.
+
 yarn && yarn watch
+
+Open Chrome -> Click "three dots" -> More Tools -> Extensions -> LOAD UNPACKED -> Choose the "dist" folder
 ```
 
 ## Credits
@@ -19,6 +27,7 @@ yarn && yarn watch
 * icon from [icon8](https://icons8.com/)
 * [JSON Formatter](https://github.com/callumlocke/json-formatter)
 * [ace](https://github.com/ajaxorg/ace) as our editor
+* [FeHelper](https://github.com/zxlie/FeHelper)
 
 ## Author
 
