@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Ip',
   data() {
@@ -31,14 +32,14 @@ export default {
   },
   methods: {
     getIpInfo() {
-      fetch(`https://api.ip.sb/geoip/${this.ip}`)
-        .then(r => r.json())
+      axios(`https://api.ip.sb/geoip/${this.ip}`)
         .then(data => {
-          this.ip = data.ip
-          this.data = data
-        }).catch(e => {
+          this.ip = data.data.ip
+          this.data = data.data
+        })
+        .catch(error => {
           this.$message({
-            message: e.message,
+            message: error.response.data.message || error.message,
             type: 'error'
           })
         })

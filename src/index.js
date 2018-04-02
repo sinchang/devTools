@@ -4,7 +4,6 @@ import router from './router'
 import ElementUI from 'element-ui'
 import Copy from 'v-copy'
 import 'element-ui/lib/theme-chalk/index.css'
-import 'unfetch/polyfill'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
