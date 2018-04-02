@@ -17,7 +17,7 @@ const routes = [
   { path: '/json', component: Json, icon: 'setting', title: 'JSON 检查美化' },
   { path: '/qrcode', component: Qrcode, icon: 'setting', title: '二维码生成' },
   { path: '/ip', component: Ip, icon: 'setting', title: 'IP 查询' },
-  { path: '/shorturl', component: ShortUrl, icon: 'setting', title: '短链接生成还原' }
+  { path: '/shorturl', component: ShortUrl, icon: 'setting', title: '短链接生成' }
 ]
 
 const router = new Router({

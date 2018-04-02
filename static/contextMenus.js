@@ -26,6 +26,13 @@ const setUpContextMenus = () => {
     parentId: 'DevTools',
     id: 'shareToTwitter'
   })
+
+  chrome.contextMenus.create({
+    title: '短链接生成',
+    contexts: ['page', 'link'],
+    parentId: 'DevTools',
+    id: 'shorturl'
+  })
 }
 
 const openPage = (url, isOpen, cb) => {
@@ -55,9 +62,13 @@ chrome.runtime.onInstalled.addListener(() => {
 })
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId.indexOf('Qrcode') > -1) {
+  const isShorturl = info.menuItemId === 'shorturl'
+  if (info.menuItemId.indexOf('Qrcode') > -1 || isShorturl) {
     let isOpen = false
-    const url = 'index.html#/qrcode'
+    let url = 'index.html#/qrcode'
+    if (isShorturl) {
+      url = 'index.html#/shorturl'
+    }
 
     openPage(url, isOpen, tab => {
       let content

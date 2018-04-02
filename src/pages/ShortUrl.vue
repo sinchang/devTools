@@ -3,7 +3,7 @@
     <el-alert
       class="page-title"
       :closable="false"
-      title="DevTools: 短链接生成还原"
+      title="DevTools: 短链接生成"
       type="info">
     </el-alert>
     <el-input type="input" v-model="src" :rows="5"></el-input>
@@ -12,7 +12,6 @@
       <el-radio v-model="radio" label="tinyurl">tinyurl.com</el-radio>
       <el-button-group :style="{ float: 'right', marginBottom: '10px' }">
         <el-button type="primary" size="mini" @click="create" :style="{marginLeft: '10px'}">Create</el-button>
-        <!-- <el-button type="primary" size="mini" @click="recovery">Recovery</el-button> -->
         <el-button type="primary" size="mini" v-copy:callback="copy" v-copy="result">Copy Result</el-button>
       </el-button-group>
     </el-form>
@@ -30,6 +29,15 @@ export default {
       result: '',
       radio: 'weibo'
     }
+  },
+  created() {
+    const self = this
+    chrome.runtime.onMessage.addListener(request => {
+      if (request.type === 'shorturl') {
+        self.src = request.content
+        self.getShortUrl('weibo', self.src)
+      }
+    })
   },
   methods: {
     async getShortUrl(site, url) {
@@ -53,7 +61,6 @@ export default {
         type: 'success'
       })
     }
-    // recovery() {}
   }
 }
 </script>
