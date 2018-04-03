@@ -25,7 +25,7 @@
 <script>
 import { btoa, atob } from 'Base64'
 export default {
-  name: 'ShortUrk',
+  name: 'Code',
   data() {
     return {
       src: '',
