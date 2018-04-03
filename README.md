@@ -9,6 +9,8 @@
 * IP 查询
 * 页面取色
 * 二维码生成及解码
+* 字符串编解码(url|base64)
+* 短链接生成(t.cn|tinyurl.com)
 
 ## Development
 
