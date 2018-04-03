@@ -7,6 +7,7 @@ import Json from '../pages/Json.vue'
 import Qrcode from '../pages/Qrcode.vue'
 import Ip from '../pages/Ip.vue'
 import ShortUrl from '../pages/ShortUrl.vue'
+import Code from '../pages/Code.vue'
 
 Vue.use(Router)
 
@@ -17,7 +18,8 @@ const routes = [
   { path: '/json', component: Json, icon: 'setting', title: 'JSON 检查美化' },
   { path: '/qrcode', component: Qrcode, icon: 'setting', title: '二维码生成' },
   { path: '/ip', component: Ip, icon: 'setting', title: 'IP 查询' },
-  { path: '/shorturl', component: ShortUrl, icon: 'setting', title: '短链接生成' }
+  { path: '/shorturl', component: ShortUrl, icon: 'setting', title: '短链接生成' },
+  { path: '/code', component: Code, icon: 'setting', title: '字符串编解码' }
 ]
 
 const router = new Router({
