@@ -6,7 +6,7 @@
       title="DevTools: 字符串编解码"
       type="info">
     </el-alert>
-    <el-input type="input" v-model="src" :rows="5"></el-input>
+    <el-input type="input" v-model="src"></el-input>
     <el-form :inline="true" size="mini" class="form">
       <el-radio v-model="radio" label="1">URL 编码</el-radio>
       <el-radio v-model="radio" label="2">URL 解码</el-radio>
@@ -18,7 +18,7 @@
         <el-button type="primary" size="mini" v-copy:callback="copy" v-copy="result">Copy</el-button>
       </el-button-group>
     </el-form>
-    <el-input type="input" v-model="result" :rows="5"></el-input>
+    <el-input type="input" v-model="result"></el-input>
   </div>
 </template>
 
