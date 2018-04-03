@@ -17,6 +17,7 @@ module.exports = (options) => ({
       // Your postcss plugins
     ]
   },
+  transformModules: ['qrcode-parser'],
   webpack(config) {
     if (options.mode !== 'development') config.output.publicPath = './'
     config.devtool = '#cheap-module-source-map'
