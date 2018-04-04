@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import Http from '../common/api'
 export default {
   name: 'ShortUrk',
   data() {
@@ -41,13 +41,15 @@ export default {
   },
   methods: {
     async getShortUrl(site, url) {
-      axios(`https://egg-shorturl-api.herokuapp.com?site=${site}&url=${url}`)
+      Http({
+        url: `https://egg-shorturl-api.herokuapp.com?site=${site}&url=${url}`
+      })
         .then(data => {
-          this.result = data.data.url
+          this.result = data.url
         })
         .catch(error => {
           this.$message({
-            message: error.response.data.message || error.message,
+            message: error.data.message || error,
             type: 'error'
           })
         })

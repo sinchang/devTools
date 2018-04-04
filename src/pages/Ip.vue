@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import Http from '../common/api'
 export default {
   name: 'Ip',
   data() {
@@ -32,14 +32,14 @@ export default {
   },
   methods: {
     getIpInfo() {
-      axios(`https://api.ip.sb/geoip/${this.ip}`)
+      Http({ url: `https://api.ip.sb/geoip/${this.ip}` })
         .then(data => {
-          this.ip = data.data.ip
-          this.data = data.data
+          this.ip = data.ip
+          this.data = data
         })
         .catch(error => {
           this.$message({
-            message: error.response.data.message || error.message,
+            message: error.data.message || error,
             type: 'error'
           })
         })
