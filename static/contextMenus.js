@@ -33,6 +33,13 @@ const setUpContextMenus = () => {
     parentId: 'DevTools',
     id: 'shorturl'
   })
+
+  chrome.contextMenus.create({
+    title: 'Markdown 一下',
+    contexts: ['page'],
+    parentId: 'DevTools',
+    id: 'markdown'
+  })
 }
 
 const openPage = (url, isOpen, cb) => {
@@ -98,4 +105,50 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     const url = `https://twitter.com/share?text=${tab.title}&url=${info.pageUrl}`
     window.open(url)
   }
+
+  if (info.menuItemId === 'markdown') {
+    copy(`[${tab.title}](${info.pageUrl})`)
+  }
 })
+
+// fork from: https://github.com/sindresorhus/copy-text-to-clipboard
+function copy(input) {
+  const el = document.createElement('textarea')
+
+  el.value = input
+
+  // Prevent keyboard from showing on mobile
+  el.setAttribute('readonly', '')
+
+  el.style.contain = 'strict'
+  el.style.position = 'absolute'
+  el.style.left = '-9999px'
+  el.style.fontSize = '12pt' // Prevent zooming on iOS
+
+  const selection = document.getSelection()
+  let originalRange = false
+  if (selection.rangeCount > 0) {
+    originalRange = selection.getRangeAt(0)
+  }
+
+  document.body.appendChild(el)
+  el.select()
+
+  // Explicit selection workaround for iOS
+  el.selectionStart = 0
+  el.selectionEnd = input.length
+
+  let success = false
+  try {
+    success = document.execCommand('copy')
+  } catch (err) {}
+
+  document.body.removeChild(el)
+
+  if (originalRange) {
+    selection.removeAllRanges()
+    selection.addRange(originalRange)
+  }
+
+  return success
+}

@@ -54,7 +54,7 @@ export default {
           tabs.forEach(tab => {
             if (tab.url && tab.url.indexOf(url) > -1) {
               isOpen = true
-              chrome.tabs.update(tab.id, { highlighted: true })
+              chrome.tabs.update(tab.id, { active: true })
             }
           })
 
