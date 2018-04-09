@@ -5,3 +5,4 @@ node_modules
 
 # poi dist
 dist
+.vscode/settings.json

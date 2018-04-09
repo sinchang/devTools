@@ -37,10 +37,8 @@ export default {
   },
   methods: {
     change(file) {
-      console.log(file)
       const reader = new FileReader()
       reader.onloadend = () => {
-        console.log(reader)
         this.dataUrl = reader.result
       }
       reader.readAsDataURL(file.raw)
