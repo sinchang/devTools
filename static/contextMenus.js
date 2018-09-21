@@ -14,6 +14,13 @@ const setUpContextMenus = () => {
   })
 
   chrome.contextMenus.create({
+    title: '搜索豆瓣电影',
+    contexts: ['selection'],
+    parentId: 'DevTools',
+    id: 'doubanMovie'
+  })
+
+  chrome.contextMenus.create({
     title: '二维码识别',
     contexts: ['image'],
     parentId: 'DevTools',
@@ -108,6 +115,11 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
   if (info.menuItemId === 'markdown') {
     copy(`[${tab.title}](${info.pageUrl})`)
+  }
+
+  if (info.menuItemId === 'doubanMovie') {
+    const url = `https://movie.douban.com/subject_search?search_text=${info.selectionText}&cat=1002`
+    window.open(url)
   }
 })
 
