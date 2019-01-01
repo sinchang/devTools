@@ -41,7 +41,7 @@
     "less-loader": "^4.1.0",
     "poi": "^9.0.0",
     "poi-preset-bundle-report": "^2.0.0",
-    "serve": "^6.1.0",
+    "serve": "^10.1.1",
     "vue-eslint-parser": "2.0.1-beta.2"
   }
 }
