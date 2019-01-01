@@ -21,6 +21,13 @@ const setUpContextMenus = () => {
   })
 
   chrome.contextMenus.create({
+    title: '搜索电影下载',
+    contexts: ['selection'],
+    parentId: 'DevTools',
+    id: 'dysfz'
+  })
+
+  chrome.contextMenus.create({
     title: '二维码识别',
     contexts: ['image'],
     parentId: 'DevTools',
@@ -119,6 +126,11 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
   if (info.menuItemId === 'doubanMovie') {
     const url = `https://movie.douban.com/subject_search?search_text=${info.selectionText}&cat=1002`
+    window.open(url)
+  }
+
+  if (info.menuItemId === 'dysfz') {
+    const url = `http://www.dysfz.vip/key/${info.selectionText}/`
     window.open(url)
   }
 })
