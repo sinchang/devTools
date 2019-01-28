@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import VueQrcode from '@xkeshi/vue-qrcode'
+import VueQrcode from '@chenfengyuan/vue-qrcode'
 import qrcodeParser from 'qrcode-parser'
 export default {
   name: 'Qrcode',

@@ -18,6 +18,7 @@
     "email": "sinchangwen@gmail.com"
   },
   "dependencies": {
+    "@chenfengyuan/vue-qrcode": "^1.0.0",
     "@xkeshi/vue-qrcode": "^0.3.0",
     "Base64": "^1.0.1",
     "axios": "^0.18.0",
