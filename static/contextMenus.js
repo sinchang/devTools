@@ -28,6 +28,13 @@ const setUpContextMenus = () => {
   })
 
   chrome.contextMenus.create({
+    title: 'Google Translate',
+    contexts: ['selection'],
+    parentId: 'DevTools',
+    id: 'translate'
+  })
+
+  chrome.contextMenus.create({
     title: '二维码识别',
     contexts: ['image'],
     parentId: 'DevTools',
@@ -131,6 +138,11 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 
   if (info.menuItemId === 'dysfz') {
     const url = `http://www.dysfz.vip/key/${info.selectionText}/`
+    window.open(url)
+  }
+
+  if (info.menuItemId === 'translate') {
+    const url = `https://translate.google.com/#view=home&op=translate&sl=en&tl=zh-CN&text=${encodeURIComponent(info.selectionText)}`
     window.open(url)
   }
 })
