@@ -137,7 +137,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   }
 
   if (info.menuItemId === 'dysfz') {
-    const url = `http://www.dysfz.vip/key/${info.selectionText}/`
+    const url = `http://www.wuhaozhan.net/s/${info.selectionText}/`
     window.open(url)
   }
 
